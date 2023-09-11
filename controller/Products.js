@@ -2,6 +2,7 @@ import Product from "../model/Product.js";
 
 
 export async function createProduct(req, res) {
+    // const { body } = req.body //gives error
     try {
         const product = new Product(req.body)
         await product.save()
@@ -11,11 +12,11 @@ export async function createProduct(req, res) {
         })
 
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }
 }
 
-export async function getProduct(req, res) {
+export async function getAllProduct(req, res) {
 
     //filter={"category": ["smartphone","laptops"]}
     //sort={_sort:"price",_order="desc"}
@@ -54,7 +55,7 @@ export async function getProduct(req, res) {
 
     try {
         const docs = await query.exec();
-        res.set('X-Total-Count', totalProducts)// not giving proper result becoz may be X-Total-Count' noy defined
+        res.set('X-Total-Count', totalProducts)// not giving proper result becoz may be X-Total-Count' not defined
         res.send({
             status: 'success',
             message: docs

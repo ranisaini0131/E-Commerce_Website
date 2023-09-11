@@ -26,9 +26,9 @@ app.use('/categories', categoryRouter)
 app.use('/brands', brandRouter)
 app.use('/users', userRouter)
 
-app.get('/', (req, res) => {
-    res.json({ status: "success" })
-})
+// app.get('/', (req, res) => {
+//     res.json({ status: "success" })
+// })
 
 
 
