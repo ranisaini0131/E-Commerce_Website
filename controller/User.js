@@ -19,7 +19,7 @@ export async function getUserById(req, res) {
     const { id } = req.params
 
     try {
-        const userId = await User.findById(id, 'name email id')//'name email id' sirf yhi ilega return me
+        const userId = await User.findById(id, 'name email id')//'name email id'projection sirf yhi ilega return me
         if (userId) {
             res.send({
                 status: "success",
